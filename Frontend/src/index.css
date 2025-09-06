@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+:root {
+    --goat-red: rgba(233, 29, 39, 1);
+    --goat-black: rgba(30, 30, 30, 1);
+}

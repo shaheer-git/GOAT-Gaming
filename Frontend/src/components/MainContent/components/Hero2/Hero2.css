@@ -1,0 +1,15 @@
+[class*=" imghvr-reveal-"]:before, [class^=imghvr-reveal-]:before {
+    background-color: white;
+    color: black;
+}
+.imghvr-reveal-up {
+    background-color: rgba(30, 30, 30, 1);
+    color: black;
+}
+[class*=" imghvr-"] figcaption, [class^=imghvr-] figcaption {
+    background-color: white;
+    color: black;
+}
+h1 {
+    color: black !important;
+} 
