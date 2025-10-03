@@ -13,7 +13,7 @@ const serviceProviding = [
 ]
 const Hero3 = () => {
     return (
-        <div className="p-5 text-center">
+        <div className="p-5 text-center mt-6">
             {/* Title */}
             <img src={ServicesText} alt="Services" className="mx-auto mb-8" />
 

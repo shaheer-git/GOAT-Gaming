@@ -1,0 +1,13 @@
+[class*=" imghvr-reveal-"]:before,
+[class^=imghvr-reveal-]:before {
+    background-color: white;
+    color: black;
+    opacity: 0.3;
+    filter: blur(5px);
+}
+
+[class*=" imghvr-"] figcaption,
+[class^=imghvr-] figcaption {
+    background-color: transparent;
+    color: black;
+}
