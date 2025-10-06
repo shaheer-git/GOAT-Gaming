@@ -16,20 +16,12 @@ import WallLandscape4 from '../../../assets/WallLandscape-4.jpg'
 
 const Hero5 = () => {
     const portraitImages = [
-        WallPortrait1,
-        WallPortrait2,
-        WallPortrait3,
-        WallPortrait4,
-        WallPortrait5,
-        WallPortrait6,
-        WallPortrait7,
+        WallPortrait1, WallPortrait2, WallPortrait3, WallPortrait4,
+        WallPortrait5, WallPortrait6, WallPortrait7,
     ];
 
     const landscapeImages = [
-        WallLandscape1,
-        WallLandscape2,
-        WallLandscape3,
-        WallLandscape4,
+        WallLandscape1, WallLandscape2, WallLandscape3, WallLandscape4,
     ];
 
     const [portraitIndex, setPortraitIndex] = useState(0);
@@ -49,8 +41,9 @@ const Hero5 = () => {
             clearInterval(landscapeInterval);
         };
     }, []);
+
     return (
-        <div className="p-5 text-center mt-6">
+        <div className="p-5 text-center mt-6" id="hero5">
             {/* Title */}
             <img src={GoatWallText} alt="Services" className="mx-auto mb-8" />
 
@@ -62,21 +55,19 @@ const Hero5 = () => {
                             key={i}
                             src={img}
                             alt="landscape"
-                            className={`absolute top-0 left-0 w-full h-full object-cover rounded-2xl transition-opacity duration-[2000ms] ease-in-out ${i === landscapeIndex ? "opacity-100" : "opacity-0"
-                                }`}
+                            className={`absolute top-0 left-0 w-full h-full object-cover rounded-2xl transition-opacity duration-[2000ms] ease-in-out ${i === landscapeIndex ? "opacity-100" : "opacity-0"}`}
                         />
                     ))}
                 </div>
 
                 {/* Portrait */}
-                <div className="w-[30%] h-[456px] border-[var(--goat-red)] border rounded-2xl overflow-hidden relative">
+                <div className="hidden lg:block w-[30%] h-[456px] border-[var(--goat-red)] border rounded-2xl overflow-hidden relative">
                     {portraitImages.map((img, i) => (
                         <img
                             key={i}
                             src={img}
                             alt="portrait"
-                            className={`absolute top-0 left-0 w-full h-full object-cover rounded-2xl transition-opacity duration-[2000ms] ease-in-out ${i === portraitIndex ? "opacity-100" : "opacity-0"
-                                }`}
+                            className={`absolute top-0 left-0 w-full h-full object-cover rounded-2xl transition-opacity duration-[2000ms] ease-in-out ${i === portraitIndex ? "opacity-100" : "opacity-0"}`}
                         />
                     ))}
                 </div>

@@ -11,14 +11,35 @@ import Hero8 from './components/Hero8'
 const MainContent = () => {
     return (
         <div className='h-full w-full flex flex-col items-center overflow-hidden'>
-            <Hero1 />
-            <Hero2 />
-            <Hero3 />
-            <Hero4 />
-            <Hero5 />
-            <Hero6 />
-            <Hero7 />
-            <Hero8 />
+                <Hero1 />
+
+            <div className='order-4 sm:order-2'>
+                <Hero2 />
+            </div>
+
+            <div className='order-2 sm:order-3'>
+                <Hero3 />
+            </div>
+
+            <div className='order-3 sm:order-4'>
+                <Hero4 />
+            </div>
+
+            <div className='order-5'>
+                <Hero5 />
+            </div>
+
+            <div className='order-6'>
+                <Hero6 />
+            </div>
+
+            <div className='order-7'>
+                <Hero7 />
+            </div>
+
+            <div className='order-8'>
+                <Hero8 />
+            </div>
         </div>
     )
 }

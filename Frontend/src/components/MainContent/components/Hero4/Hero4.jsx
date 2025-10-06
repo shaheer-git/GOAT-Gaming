@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import FeedbackText from '../../../../assets/FeedbackText.svg'
 
-
 const reviews = [
     {
         rating: 5,
@@ -72,52 +71,70 @@ const reviews = [
 function ReviewCards() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    const shouldSlide = reviews.length > 3;
-    const maxSlides = shouldSlide ? reviews.length - 3 : 0;
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const cardsToShow = isMobile ? 1 : 3;
+    const shouldSlide = reviews.length > cardsToShow;
+    const maxSlides = shouldSlide ? reviews.length - cardsToShow : 0;
 
     useEffect(() => {
         if (!shouldSlide || isHovered) return;
 
         const interval = setInterval(() => {
             setCurrentSlide(prev => (prev + 1) % (maxSlides + 1));
-        }, 4000); // 4 second delay for smooth transition
+        }, 4000);
 
         return () => clearInterval(interval);
     }, [shouldSlide, maxSlides, isHovered]);
 
-    const visibleReviews = shouldSlide
-        ? reviews.slice(currentSlide, currentSlide + 3)
-        : reviews.slice(0, 3);
-
     return (
         <div
-            className="relative overflow-hidden px-8 py-12"
+            className="relative overflow-hidden py-8 lg:py-12"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div
-                className="flex gap-6 justify-center transition-transform duration-700 ease-in-out"
-                style={{
-                    transform: shouldSlide ? `translateX(-${currentSlide * 320}px)` : 'none'
-                }}
-            >
-                {(shouldSlide ? reviews : visibleReviews).map((review, index) => (
-                    <ReviewCard key={index} review={review} />
-                ))}
+            {/* Desktop View - 3 cards */}
+            <div className="hidden lg:block px-8">
+                <div
+                    className="flex gap-6 justify-center transition-transform duration-700 ease-in-out"
+                    style={{
+                        transform: shouldSlide ? `translateX(-${currentSlide * 320}px)` : 'none'
+                    }}
+                >
+                    {reviews.map((review, index) => (
+                        <ReviewCard key={index} review={review} isMobile={false} />
+                    ))}
+                </div>
             </div>
+
+                <div className="block lg:hidden px-4">
+                    <div className="flex flex-col items-center gap-4">
+                        <ReviewCard review={reviews[currentSlide]} isMobile={true} />
+                    </div>
+                </div>
 
             {/* Slide indicators */}
             {shouldSlide && (
                 <div className="flex justify-center mt-6 gap-2">
-                    {Array(maxSlides + 1).fill().map((_, index) => (
+                    {Array(isMobile ? reviews.length : maxSlides + 1).fill().map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setCurrentSlide(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                currentSlide === index
                                     ? 'bg-red-500 w-6'
                                     : 'bg-gray-600 hover:bg-gray-400'
-                                }`}
+                            }`}
                         />
                     ))}
                 </div>
@@ -126,14 +143,18 @@ function ReviewCards() {
     );
 }
 
-function ReviewCard({ review }) {
+function ReviewCard({ review, isMobile }) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
         <div
-            className="relative w-[300px] h-[280px] rounded-2xl p-5 cursor-pointer overflow-hidden
+            className={`relative rounded-2xl p-5 cursor-pointer overflow-hidden
                      transform transition-all duration-500 hover:-translate-y-3 flex-shrink-0
-                     shadow-lg shadow-[var(--goat-black)]/50"
+                     shadow-lg shadow-[var(--goat-black)]/50 ${
+                         isMobile 
+                             ? 'w-full max-w-md h-auto min-h-[350px]' 
+                             : 'w-[300px] h-[280px]'
+                     }`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             style={{
@@ -160,7 +181,8 @@ function ReviewCard({ review }) {
                     `,
                     filter: `blur(25px)`,
                 }}
-            />            
+            />
+            
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col">
                 {/* Stars */}
@@ -216,10 +238,15 @@ function ReviewCard({ review }) {
         </div>
     );
 }
+
 const Hero4 = () => {
     return (
-        <div className="p-5 text-center">
-            <img src={FeedbackText} alt="feedback" className="mx-auto mb-8 overflow-hidden" />
+        <div className="p-5 text-center" id="hero4">
+            <img 
+                src={FeedbackText} 
+                alt="feedback" 
+                className="mx-auto mb-8 overflow-hidden" 
+            />
             <ReviewCards />
         </div>
     )
