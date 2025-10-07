@@ -10,7 +10,8 @@ function ContactForm() {
     phone: '',
     subject: '',
     query: 'Slot Booking',
-    message: ''
+    message: '',
+    preferredTime: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -38,7 +39,7 @@ function ContactForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     if (touched[name]) {
       setErrors(prev => ({ ...prev, [name]: validateField(name, value) }));
     }
@@ -52,9 +53,9 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const newErrors = {};
-    Object.keys(formData).forEach(key => {
+    Object.keys(formData).forEach((key) => {
       if (key !== 'query') {
         const error = validateField(key, formData[key]);
         if (error) newErrors[key] = error;
@@ -67,19 +68,43 @@ function ContactForm() {
       email: true,
       phone: true,
       subject: true,
-      message: true
+      message: true,
     });
 
     if (Object.keys(newErrors).length === 0) {
       console.log('Form Data:', formData);
-    //   alert('Form submitted successfully! Check console for data.');
+
+      // ✅ Prepare WhatsApp message
+      const textMessage = `📩 ${formData.query} — LevelUp Gaming Café
+
+Name: ${formData.name}
+Phone/WhatsApp: ${formData.phone}
+Email: ${formData.email}
+Query Type: ${formData.query || 'Slot Booking'}
+Message: ${formData.message}
+Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
+
+      // ✅ Encode message for URL
+      const encodedMessage = encodeURIComponent(textMessage);
+
+      // ✅ Replace with your official WhatsApp number (with country code, no '+' or spaces)
+      const whatsappNumber = '919019095749'; // Example: +91 98765 43210 → '919876543210'
+
+      // ✅ Create WhatsApp URL
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      // ✅ Open WhatsApp chat
+      window.open(whatsappURL, '_blank');
+
+      // ✅ Reset form
       setFormData({
         name: '',
         email: '',
         phone: '',
         subject: '',
         query: 'Slot Booking',
-        message: ''
+        message: '',
+        preferredTime: ''
       });
       setTouched({});
     }
@@ -92,9 +117,9 @@ function ContactForm() {
 
         <div className="flex flex-col gap-6">
           {/* Row 1 */}
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex flex-col flex-1">
-              <label className="text-white text-sm mb-1">
+          <div className="flex flex-col md:flex-row gap-4 w-full">
+            <div className="flex flex-col flex-1 md:w-1/2">
+              <label className="text-white text-lg mb-1">
                 Name <span className="text-white">*</span>
               </label>
               <input
@@ -109,8 +134,8 @@ function ContactForm() {
                 <span className="text-red-500 text-xs mt-1">{errors.name}</span>
               )}
             </div>
-            <div className="flex flex-col flex-1">
-              <label className="text-white text-sm mb-1">
+            <div className="flex flex-col flex-1 md:w-1/2">
+              <label className="text-white text-lg mb-1">
                 Email <span className="text-white">*</span>
               </label>
               <input
@@ -128,9 +153,9 @@ function ContactForm() {
           </div>
 
           {/* Row 2 */}
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex flex-col flex-1">
-              <label className="text-white text-sm mb-1">
+          <div className="flex flex-col md:flex-row gap-4 w-full">
+            <div className="flex flex-col flex-1 md:w-1/2">
+              <label className="text-white text-lg mb-1">
                 Phone <span className="text-white">*</span>
               </label>
               <input
@@ -145,8 +170,8 @@ function ContactForm() {
                 <span className="text-red-500 text-xs mt-1">{errors.phone}</span>
               )}
             </div>
-            <div className="flex flex-col flex-1">
-              <label className="text-white text-sm mb-1">
+            <div className="flex flex-col flex-1 md:w-1/2">
+              <label className="text-white text-lg mb-1">
                 Subject <span className="text-white">*</span>
               </label>
               <input
@@ -164,13 +189,13 @@ function ContactForm() {
           </div>
 
           {/* Dropdown */}
-          <div className="flex flex-col">
-            <label className="text-white text-sm mb-4">My Queries About</label>
-            <select 
+          <div className="flex flex-col w-full">
+            <label className="text-white text-lg mb-4">My Queries About</label>
+            <select
               name="query"
               value={formData.query}
               onChange={handleChange}
-              className="bg-transparent w-1/4 text-[var(--goat-red)] focus:outline-none text-xs"
+              className="bg-transparent w-1/2 text-[var(--goat-red)] focus:outline-none text-md"
             >
               <option className="bg-[var(--goat-black)] text-white">Slot Booking</option>
               <option className="bg-[var(--goat-black)] text-white">General Query</option>
@@ -178,9 +203,23 @@ function ContactForm() {
             </select>
           </div>
 
+          <div className="flex flex-col w-full">
+            <label className="text-white text-lg mb-4">Preferred Time</label>
+            <select
+              name="preferredTime"
+              value={formData.preferredTime}
+              onChange={handleChange}
+              className="bg-transparent w-full text-[var(--goat-red)] focus:outline-none text-md"
+            >
+              <option className="bg-[var(--goat-black)] text-white">Morning (10:00 AM - 12:00 PM)</option>
+              <option className="bg-[var(--goat-black)] text-white">Afternoon (2:00 PM - 5:00 PM)</option>
+              <option className="bg-[var(--goat-black)] text-white">Evening (6:00 PM - 8:00 PM)</option>
+            </select>
+          </div>
+
           {/* Textarea */}
           <div className="flex flex-col">
-            <label className="text-white text-sm mb-1">
+            <label className="text-white text-lg mb-1">
               Tell us how can we help you <span className="text-white">*</span>
             </label>
             <textarea
@@ -192,7 +231,7 @@ function ContactForm() {
               className="bg-transparent border-b border-[var(--goat-red)] focus:outline-none text-white resize-none py-1"
             ></textarea>
             {touched.message && errors.message && (
-              <span className="text-red-500 text-xs mt-1">{errors.message}</span>
+              <span className="text-red-500 text-md mt-1">{errors.message}</span>
             )}
           </div>
 
@@ -215,7 +254,7 @@ const Hero7 = () => {
   return (
     <div className="p-5 text-start mt-6" id="hero7">
       <img src={Text} alt="Services" className="mx-auto mb-8s pb-5" />
-      
+
       <div className="w-full bg-white h-full hidden lg:flex items-center">
         <div className="w-1/2 h-full border border-[var(--goat-red)] border-r-0 ml-15 flex items-start justify-center flex-col py-10">
           <div className="w-full ml-10">
@@ -228,16 +267,16 @@ const Hero7 = () => {
             </div>
             <div className="ml-10">
               <div className="mb-5">
-                <p className="font-semibold text-[#E91D27] text-sm text-start">Phone</p>
-                <p className="font-semibold text-[var(--goat-black)] text-sm text-start">+91 9751524186</p>
+                <p className="font-semibold text-[#E91D27] text-lg text-start">Phone</p>
+                <p className="font-semibold text-[var(--goat-black)] text-lg text-start">+91 9751524186</p>
               </div>
               <div className="mb-5">
-                <p className="font-semibold text-[#E91D27] text-sm text-start">Email</p>
-                <p className="font-semibold text-[var(--goat-black)] text-sm text-start">hello@gmail.com</p>
+                <p className="font-semibold text-[#E91D27] text-lg text-start">Email</p>
+                <p className="font-semibold text-[var(--goat-black)] text-lg text-start">hello@gmail.com</p>
               </div>
               <div className="mb-5">
-                <p className="font-semibold text-[#E91D27] text-sm text-start">Location</p>
-                <p className="font-semibold text-[var(--goat-black)] text-sm text-start w-3/4">
+                <p className="font-semibold text-[#E91D27] text-lg text-start">Location</p>
+                <p className="font-semibold text-[var(--goat-black)] text-lg text-start w-3/4">
                   177A Bleecker Street, Greenwich Village, New York City
                 </p>
                 <a
@@ -267,7 +306,7 @@ const Hero7 = () => {
 
       <div className="lg:hidden w-full flex justify-center items-center bg-[var(--goat-black)] min-h-screen">
         <div className="border border-[var(--goat-red)] rounded-2xl w-[90%]">
-            <ContactForm />
+          <ContactForm />
         </div>
       </div>
 

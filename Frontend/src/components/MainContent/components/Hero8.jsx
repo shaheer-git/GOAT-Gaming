@@ -6,7 +6,7 @@ import RightFooterImg from '../../../assets/RightFooterImg.png';
 import companyLog from '../../../assets/Logo.svg';
 
 const Hero8 = () => {
-    const scrollToSection = (id) => {
+    const scrollToSection = (id) =>{
     const section = document.getElementById(id);
     if (section) section.scrollIntoView({ behavior: 'smooth' });
   }
@@ -20,7 +20,7 @@ const Hero8 = () => {
                 <img
                     src={LeftFooterImg}
                     alt="Left Footer Background"
-                    className="absolute left-0 top-[-25px] h-full object-cover"
+                    className="absolute left-0 top-[-25px] md:h-full object-cover"
                 />
                 <div className="absolute top-[40%] left-[5%] z-10 text-white py-10 px-12 bg-[var(--goat-black)] rounded-2xl w-[90%] sm:w-[70%] md:w-[60%] lg:w-[90%]">
                     <div className="flex gap-5">
@@ -112,7 +112,7 @@ const Hero8 = () => {
             </div>
 
             <div className="w-full relative lg:hidden">
-                <img src={FooterBg} alt="Services" className="w-full" />
+                <img src={FooterBg} alt="Services" className="w-full h-full" />
                 
                 <img
                     src={LeftFooterImg}
