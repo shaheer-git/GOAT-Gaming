@@ -7,9 +7,9 @@
     color: black;
 }
 [class*=" imghvr-"] figcaption, [class^=imghvr-] figcaption {
-    background-color: white;
+    background-color: white !important;
     color: black;
 }
 h1 {
-    color: black !important;
+    color: var(--goat-red) !important;
 } 

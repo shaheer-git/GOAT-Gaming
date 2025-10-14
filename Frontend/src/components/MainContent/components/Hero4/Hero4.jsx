@@ -26,46 +26,6 @@ const reviews = [
         reviews: "8 reviews",
         photos: "2 photos"
     },
-    {
-        rating: 5,
-        text: "By Far the Best gaming cafe for PC gamers in Bangalore. Everything seems well thought; the silent rooms, latest peripherals and probably the cheapest 360hz setup for fps gamers (Costed me only 100rs per hour). Even if you spend only 1 hour here, it will be a quality gaming session. No hassle only fragging.",
-        name: "Mohammed Sameer",
-        userImg: null,
-        reviews: "8 reviews",
-        photos: "2 photos"
-    },
-    {
-        rating: 5,
-        text: "By Far the Best gaming cafe for PC gamers in Bangalore. Everything seems well thought; the silent rooms, latest peripherals and probably the cheapest 360hz setup for fps gamers (Costed me only 100rs per hour). Even if you spend only 1 hour here, it will be a quality gaming session. No hassle only fragging.",
-        name: "Mohammed Sameer",
-        userImg: null,
-        reviews: "8 reviews",
-        photos: "2 photos"
-    },
-    {
-        rating: 5,
-        text: "By Far the Best gaming cafe for PC gamers in Bangalore. Everything seems well thought; the silent rooms, latest peripherals and probably the cheapest 360hz setup for fps gamers (Costed me only 100rs per hour). Even if you spend only 1 hour here, it will be a quality gaming session. No hassle only fragging.",
-        name: "Mohammed Sameer",
-        userImg: null,
-        reviews: "8 reviews",
-        photos: "2 photos"
-    },
-    {
-        rating: 5,
-        text: "By Far the Best gaming cafe for PC gamers in Bangalore. Everything seems well thought; the silent rooms, latest peripherals and probably the cheapest 360hz setup for fps gamers (Costed me only 100rs per hour). Even if you spend only 1 hour here, it will be a quality gaming session. No hassle only fragging.",
-        name: "Mohammed Sameer",
-        userImg: null,
-        reviews: "8 reviews",
-        photos: "2 photos"
-    },
-    {
-        rating: 5,
-        text: "By Far the Best gaming cafe for PC gamers in Bangalore. Everything seems well thought; the silent rooms, latest peripherals and probably the cheapest 360hz setup for fps gamers (Costed me only 100rs per hour). Even if you spend only 1 hour here, it will be a quality gaming session. No hassle only fragging.",
-        name: "Mohammed Sameer",
-        userImg: null,
-        reviews: "8 reviews",
-        photos: "2 photos"
-    },
 ];
 
 function ReviewCards() {
@@ -77,7 +37,7 @@ function ReviewCards() {
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768);
         };
-        
+
         checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
@@ -91,11 +51,12 @@ function ReviewCards() {
         if (!shouldSlide || isHovered) return;
 
         const interval = setInterval(() => {
-            setCurrentSlide(prev => (prev + 1) % (maxSlides + 1));
+            setCurrentSlide((prev) => (prev + 1) % reviews.length);
         }, 4000);
 
         return () => clearInterval(interval);
-    }, [shouldSlide, maxSlides, isHovered]);
+    }, [shouldSlide, isHovered, reviews.length]);
+
 
     return (
         <div
@@ -106,9 +67,9 @@ function ReviewCards() {
             {/* Desktop View - 3 cards */}
             <div className="hidden lg:block px-8">
                 <div
-                    className="flex gap-6 justify-center transition-transform duration-700 ease-in-out"
+                    className="flex transition-transform duration-500 ease-in-out items-center gap-8"
                     style={{
-                        transform: shouldSlide ? `translateX(-${currentSlide * 320}px)` : 'none'
+                        transform: `translateX(-${(currentSlide * 100) / cardsToShow}%)`,
                     }}
                 >
                     {reviews.map((review, index) => (
@@ -117,11 +78,11 @@ function ReviewCards() {
                 </div>
             </div>
 
-                <div className="block lg:hidden px-4">
-                    <div className="flex flex-col items-center gap-4">
-                        <ReviewCard review={reviews[currentSlide]} isMobile={true} />
-                    </div>
+            <div className="block lg:hidden px-4">
+                <div className="flex flex-col items-center gap-4">
+                    <ReviewCard review={reviews[currentSlide]} isMobile={true} />
                 </div>
+            </div>
 
             {/* Slide indicators */}
             {shouldSlide && (
@@ -130,11 +91,10 @@ function ReviewCards() {
                         <button
                             key={index}
                             onClick={() => setCurrentSlide(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                currentSlide === index
-                                    ? 'bg-red-500 w-6'
-                                    : 'bg-gray-600 hover:bg-gray-400'
-                            }`}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
+                                ? 'bg-red-500 w-6'
+                                : 'bg-gray-600 hover:bg-gray-400'
+                                }`}
                         />
                     ))}
                 </div>
@@ -150,11 +110,10 @@ function ReviewCard({ review, isMobile }) {
         <div
             className={`relative rounded-2xl p-5 cursor-pointer overflow-hidden
                      transform transition-all duration-500 hover:-translate-y-3 flex-shrink-0
-                     shadow-lg shadow-[var(--goat-black)]/50 ${
-                         isMobile 
-                             ? 'w-full max-w-md h-auto min-h-[350px]' 
-                             : 'w-[300px] h-[280px]'
-                     }`}
+                     shadow-lg shadow-[var(--goat-black)]/50 ${isMobile
+                    ? 'w-full max-w-md h-auto min-h-[350px]'
+                    : 'w-[450px] h-[400px]'
+                }`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             style={{
@@ -182,7 +141,7 @@ function ReviewCard({ review, isMobile }) {
                     filter: `blur(25px)`,
                 }}
             />
-            
+
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col">
                 {/* Stars */}
@@ -242,10 +201,11 @@ function ReviewCard({ review, isMobile }) {
 const Hero4 = () => {
     return (
         <div className="p-5 text-center" id="hero4">
-            <img 
-                src={FeedbackText} 
-                alt="feedback" 
-                className="mx-auto mb-8 overflow-hidden" 
+            <img
+                src={FeedbackText}
+                alt="feedback"
+                className="mx-auto mb-8 overflow-hidden"
+                data-aos="zoom-in"
             />
             <ReviewCards />
         </div>

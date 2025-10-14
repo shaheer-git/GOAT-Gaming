@@ -29,6 +29,7 @@ const Hero3 = () => {
                     <div 
                         key={rowIndex} 
                         className="flex flex-wrap justify-center gap-2 sm:gap-4"
+                        data-aos="fade-up"
                     >
                         {row.map((service, index) => (
                             <div 

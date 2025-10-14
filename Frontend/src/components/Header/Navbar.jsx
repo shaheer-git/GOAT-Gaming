@@ -8,7 +8,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <div className="md:relative sticky top-0 z-50 md:bg-none bg-[var(--goat-black)] h-[12vh] w-full flex items-center justify-between px-4 py-8 md:px-0 lg:px-0">
+        <div className="md:relative sticky top-0 z-50 md:bg-none bg-[var(--goat-black)] h-[12vh] w-full flex items-center justify-between px-4 py-8 mb-4 md:px-0 lg:px-0">
             <div className="flex items-center justify-between w-full md:hidden">
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
@@ -32,8 +32,8 @@ const Navbar = () => {
                 <div className="w-1/6 h-full flex items-center">
                     <img src={companyLog} alt="" className="max-h-10 md:max-h-12 lg:max-h-14" />
                 </div>
-                <div className='w-full bg-white h-[50px] md:h-[55px] lg:h-[60px] rounded-full flex items-center justify-around px-2'>
-                    <div className="group py-3 px-6 rounded-full hover:bg-black cursor-pointer transition-colors duration-300"
+                <div className='w-full h-[50px] md:h-[55px] lg:h-[60px] rounded-full flex items-center justify-around px-2'>
+                    <div className="group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300"
                         onClick={() => {
                             const hero1 = document.getElementById('hero1');
                             if (hero1) {
@@ -41,39 +41,39 @@ const Navbar = () => {
                             }
                         }}
                     >
-                        <p className="text-black text-xs md:text-sm group-hover:text-white transition-colors duration-300">
+                        <p className="text-white text-xs md:text-sm group-hover:text-white transition-colors duration-300">
                             Home
                         </p>
                     </div>
-                    <div className='group py-3 px-6 rounded-full hover:bg-black cursor-pointer transition-colors duration-300'
+                    <div className='group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300'
                         onClick={() => {
                             const hero4 = document.getElementById('hero4');
                             if (hero4) {
                                 hero4.scrollIntoView({ behavior: 'smooth' });
                             }
                         }}>
-                        <p className='text-black text-xs md:text-sm group-hover:text-white transition-colors duration-300'>About Us</p>
+                        <p className='text-white text-xs md:text-sm group-hover:text-white transition-colors duration-300'>About Us</p>
                     </div>
-                    <div className='group py-3 px-6 rounded-full hover:bg-black cursor-pointer transition-colors duration-300'
+                    <div className='group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300'
                         onClick={() => {
                             const hero3 = document.getElementById('hero3');
                             if (hero3) {
                                 hero3.scrollIntoView({ behavior: 'smooth' });
                             }
                         }}>
-                        <p className='text-black text-xs md:text-sm group-hover:text-white transition-colors duration-300'>Services</p>
+                        <p className='text-white text-xs md:text-sm group-hover:text-white transition-colors duration-300'>Services</p>
                     </div>
-                    <div className='group py-3 px-6 rounded-full hover:bg-black cursor-pointer transition-colors duration-300'
+                    <div className='group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300'
                         onClick={() => {
                             const hero5 = document.getElementById('hero5');
                             if (hero5) {
                                 hero5.scrollIntoView({ behavior: 'smooth' });
                             }
                         }}>
-                        <p className='text-black text-xs md:text-sm group-hover:text-white transition-colors duration-300'>Gallery</p>
+                        <p className='text-white text-xs md:text-sm group-hover:text-white transition-colors duration-300'>Gallery</p>
                     </div>
-                    <div className='group py-3 px-6 rounded-full hover:bg-black cursor-pointer transition-colors duration-300'>
-                        <p className='text-black text-xs md:text-sm group-hover:text-white transition-colors duration-300'>Franchise</p>
+                    <div className='group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300'>
+                        <p className='text-white text-xs md:text-sm group-hover:text-white transition-colors duration-300'>Franchise</p>
                     </div>
                 </div>
                 <div className="w-[25%] md:w-[22%] lg:w-[20%] bg-[var(--goat-red)] h-[7vh] md:h-[7.5vh] lg:h-[8vh] rounded-full flex items-center gap-2 md:gap-3 lg:gap-4 px-2 md:px-3 justify-around group cursor-pointer"

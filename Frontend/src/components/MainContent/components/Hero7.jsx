@@ -11,7 +11,7 @@ function ContactForm() {
     subject: '',
     query: 'Slot Booking',
     message: '',
-    preferredTime: ''
+    // preferredTime: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -81,9 +81,7 @@ Name: ${formData.name}
 Phone/WhatsApp: ${formData.phone}
 Email: ${formData.email}
 Query Type: ${formData.query || 'Slot Booking'}
-Message: ${formData.message}
-Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
-
+Message: ${formData.message}`;
       // ✅ Encode message for URL
       const encodedMessage = encodeURIComponent(textMessage);
 
@@ -111,7 +109,7 @@ Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
   };
 
   return (
-    <div className="flex justify-center items-center bg-[var(--goat-black)] w-full lg:w-4/5 h-full rounded-2xl">
+    <div className="flex justify-center items-center bg-[var(--goat-black)] w-full lg:w-6/7 h-full rounded-2xl">
       <div className="bg-[var(--goat-black)] p-8 rounded-2xl w-full max-w-[500px]">
         <h2 className="text-white text-2xl font-semibold mb-10">Contact</h2>
 
@@ -119,7 +117,7 @@ Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
           {/* Row 1 */}
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <div className="flex flex-col flex-1 md:w-1/2">
-              <label className="text-white text-lg mb-1">
+              <label className="text-white text-sm mb-1">
                 Name <span className="text-white">*</span>
               </label>
               <input
@@ -135,7 +133,7 @@ Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
               )}
             </div>
             <div className="flex flex-col flex-1 md:w-1/2">
-              <label className="text-white text-lg mb-1">
+              <label className="text-white text-sm mb-1">
                 Email <span className="text-white">*</span>
               </label>
               <input
@@ -155,7 +153,7 @@ Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
           {/* Row 2 */}
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <div className="flex flex-col flex-1 md:w-1/2">
-              <label className="text-white text-lg mb-1">
+              <label className="text-white text-sm mb-1">
                 Phone <span className="text-white">*</span>
               </label>
               <input
@@ -171,7 +169,7 @@ Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
               )}
             </div>
             <div className="flex flex-col flex-1 md:w-1/2">
-              <label className="text-white text-lg mb-1">
+              <label className="text-white text-sm mb-1">
                 Subject <span className="text-white">*</span>
               </label>
               <input
@@ -190,7 +188,7 @@ Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
 
           {/* Dropdown */}
           <div className="flex flex-col w-full">
-            <label className="text-white text-lg mb-4">My Queries About</label>
+            <label className="text-white text-sm mb-4">My Queries About</label>
             <select
               name="query"
               value={formData.query}
@@ -203,8 +201,8 @@ Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
             </select>
           </div>
 
-          <div className="flex flex-col w-full">
-            <label className="text-white text-lg mb-4">Preferred Time</label>
+          {/* <div className="flex flex-col w-full">
+            <label className="text-white text-sm mb-4">Preferred Time</label>
             <select
               name="preferredTime"
               value={formData.preferredTime}
@@ -215,11 +213,11 @@ Preferred Contact Time: ${formData.preferredTime || 'Not Specified'}`;
               <option className="bg-[var(--goat-black)] text-white">Afternoon (2:00 PM - 5:00 PM)</option>
               <option className="bg-[var(--goat-black)] text-white">Evening (6:00 PM - 8:00 PM)</option>
             </select>
-          </div>
+          </div> */}
 
           {/* Textarea */}
           <div className="flex flex-col">
-            <label className="text-white text-lg mb-1">
+            <label className="text-white text-sm mb-1">
               Tell us how can we help you <span className="text-white">*</span>
             </label>
             <textarea
@@ -256,7 +254,7 @@ const Hero7 = () => {
       <img src={Text} alt="Services" className="mx-auto mb-8s pb-5" />
 
       <div className="w-full bg-white h-full hidden lg:flex items-center">
-        <div className="w-1/2 h-full border border-[var(--goat-red)] border-r-0 ml-15 flex items-start justify-center flex-col py-10">
+        <div className="w-1/2 h-full border border-[var(--goat-red)] border-r-0 ml-15 flex items-start justify-center flex-col py-[35px]">
           <div className="w-full ml-10">
             <img src={GetInTouch} alt="GetInTouch" className="w-50 h-50" />
           </div>
@@ -271,12 +269,12 @@ const Hero7 = () => {
                 <p className="font-semibold text-[var(--goat-black)] text-lg text-start">+91 9751524186</p>
               </div>
               <div className="mb-5">
-                <p className="font-semibold text-[#E91D27] text-lg text-start">Email</p>
-                <p className="font-semibold text-[var(--goat-black)] text-lg text-start">hello@gmail.com</p>
+                <p className="font-semibold text-[#E91D27] text-sm text-start">Email</p>
+                <p className="font-semibold text-[var(--goat-black)] text-sm text-start">hello@gmail.com</p>
               </div>
               <div className="mb-5">
-                <p className="font-semibold text-[#E91D27] text-lg text-start">Location</p>
-                <p className="font-semibold text-[var(--goat-black)] text-lg text-start w-3/4">
+                <p className="font-semibold text-[#E91D27] text-sm text-start">Location</p>
+                <p className="font-semibold text-[var(--goat-black)] text-sm text-start w-3/4">
                   177A Bleecker Street, Greenwich Village, New York City
                 </p>
                 <a

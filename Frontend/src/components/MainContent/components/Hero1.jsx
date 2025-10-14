@@ -31,7 +31,8 @@ const Hero1 = () => {
         return () => clearInterval(interval);
     }, []);
     return (
-        <div id="hero1" className="h-[400px] sm:h-[500px] md:h-[600px] lg:h-[748px] w-full sm:w-[100%] md:w-[95%] lg:w-[1041px] mx-auto bg-center relative rounded-3xl overflow-hidden px-4 sm:px-0">
+        <div id="hero1" className="h-[400px] sm:h-[500px] md:h-[600px] lg:h-[748px] w-full sm:w-[100%] md:w-[95%] lg:w-[1041px] mx-auto bg-center relative rounded-3xl overflow-hidden px-4 sm:px-0"  data-aos="fade-up"
+     data-aos-duration="3000">
             {images.map((img, index) => (
                 <div
                     key={index}
