@@ -24,7 +24,7 @@ const Navbar = () => {
                 />
 
                 <button className="text-white p-2" onClick={() => window.open("tel:+91 9019095749")} >
-                    <img src={CallIcon} alt="call Now" srcset=""className="h-8" />
+                    <img src={CallIcon} alt="call Now" srcset="" className="h-8" />
                 </button>
             </div>
 
@@ -47,7 +47,7 @@ const Navbar = () => {
                     </div>
                     <div className='group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300'
                         onClick={() => {
-                            const hero4 = document.getElementById('hero4');
+                            const hero4 = document.getElementById('hero2');
                             if (hero4) {
                                 hero4.scrollIntoView({ behavior: 'smooth' });
                             }
@@ -72,7 +72,13 @@ const Navbar = () => {
                         }}>
                         <p className='text-white text-xs md:text-sm group-hover:text-white transition-colors duration-300'>Gallery</p>
                     </div>
-                    <div className='group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300'>
+                    <div className='group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300'
+                        onClick={() => {
+                            const hero7 = document.getElementById('hero7');
+                            if (hero7) {
+                                hero7.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}>
                         <p className='text-white text-xs md:text-sm group-hover:text-white transition-colors duration-300'>Franchise</p>
                     </div>
                 </div>
@@ -83,7 +89,7 @@ const Navbar = () => {
                             hero7.scrollIntoView({ behavior: 'smooth' });
                         }
                     }}>
-                    <p className="text-black text-xs md:text-sm whitespace-nowrap">Contact Us</p>
+                    <p className="text-white text-xs md:text-[15px] font-semibold whitespace-nowrap">Contact Us</p>
                     <img
                         src={ContactUsArrow}
                         alt="contact us"
@@ -122,7 +128,7 @@ const Navbar = () => {
                         )
                     )}
                     <button
-                        className="bg-[var(--goat-red)] text-black py-2 px-6 rounded-full mt-4"
+                        className="bg-[var(--goat-red)] text-white py-2 px-6 rounded-full mt-4"
                         onClick={() => {
                             setMenuOpen(false);
                             const section = document.getElementById("hero7");

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Text from '../../../assets/LetsConnect.svg';
 import GetInTouch from '../../../assets/GetInTouch.svg';
 import SeeUsOnGMaps from '../../../assets/SeeUsOnGMaps.svg';
+import singleLine from '../../../assets/singleLine.svg';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -9,7 +10,7 @@ function ContactForm() {
     email: '',
     phone: '',
     subject: '',
-    query: 'Slot Booking',
+    query: 'Franchise',
     message: '',
     // preferredTime: ''
   });
@@ -195,6 +196,7 @@ Message: ${formData.message}`;
               onChange={handleChange}
               className="bg-transparent w-1/2 text-[var(--goat-red)] focus:outline-none text-md"
             >
+              <option className="bg-[var(--goat-black)] text-white">Franchise</option>
               <option className="bg-[var(--goat-black)] text-white">Slot Booking</option>
               <option className="bg-[var(--goat-black)] text-white">General Query</option>
               <option className="bg-[var(--goat-black)] text-white">Support</option>
@@ -217,7 +219,7 @@ Message: ${formData.message}`;
 
           {/* Textarea */}
           <div className="flex flex-col">
-            <label className="text-white text-sm mb-1">
+            <label className="text-white text-sm">
               Tell us how can we help you <span className="text-white">*</span>
             </label>
             <textarea
@@ -225,7 +227,7 @@ Message: ${formData.message}`;
               value={formData.message}
               onChange={handleChange}
               onBlur={handleBlur}
-              rows="3"
+              rows="2"
               className="bg-transparent border-b border-[var(--goat-red)] focus:outline-none text-white resize-none py-1"
             ></textarea>
             {touched.message && errors.message && (
@@ -254,7 +256,8 @@ const Hero7 = () => {
       <img src={Text} alt="Services" className="mx-auto mb-8s pb-5" />
 
       <div className="w-full bg-white h-full hidden lg:flex items-center">
-        <div className="w-1/2 h-full border border-[var(--goat-red)] border-r-0 ml-15 flex items-start justify-center flex-col py-[35px]">
+        <img src={singleLine} alt="singleLine" className="h-full ml-15" />
+        <div className="w-1/2 h-full border-r-0 flex items-start justify-center flex-col py-[35px]">
           <div className="w-full ml-10">
             <img src={GetInTouch} alt="GetInTouch" className="w-50 h-50" />
           </div>
@@ -296,16 +299,19 @@ const Hero7 = () => {
             </div>
           </div>
         </div>
-
-        <div className="w-1/2 h-full border border-[var(--goat-red)] mr-15 flex items-center justify-center py-[16px]">
+        <img src={singleLine} alt="singleLine" className="h-full" />
+        <div className="w-1/2 h-full flex items-center justify-center py-[16px]">
           <ContactForm />
         </div>
+        <img src={singleLine} alt="singleLine" className="h-full mr-15" />
       </div>
 
       <div className="lg:hidden w-full flex justify-center items-center bg-[var(--goat-black)] min-h-screen">
-        <div className="border border-[var(--goat-red)] rounded-2xl w-[90%]">
+        <img src={singleLine} alt="singleLine" className="h-full" />
+        <div className="rounded-2xl w-[90%]">
           <ContactForm />
         </div>
+        <img src={singleLine} alt="singleLine" className="h-full mr-15" />
       </div>
 
     </div>

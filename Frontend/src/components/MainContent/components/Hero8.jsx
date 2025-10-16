@@ -17,12 +17,12 @@ const Hero8 = () => {
 
             <div className="w-full h-full relative hidden lg:block">
                 <img src={FooterBg} alt="Footer Background" className="w-full" />
-                <img
+                {/* <img
                     src={LeftFooterImg}
                     alt="Left Footer Background"
                     className="absolute left-0 top-[-25px] md:h-full object-cover"
-                />
-                <div className="absolute top-[40%] left-[5%] z-10 text-white py-10 px-12 bg-[var(--goat-black)] rounded-2xl w-[90%] sm:w-[70%] md:w-[60%] lg:w-[90%]">
+                /> */}
+                <div className="absolute top-[40%] left-[5%] z-10 text-white py-10 px-12 bg-[var(--goat-black)] rounded-2xl w-[90%] sm:w-[70%] md:w-[60%] lg:w-[90%] sm:min-h-[365px] lg:min-h-[300px]">
                     <div className="flex gap-5">
                         <div className="flex flex-col justify-between min-w-[200px]">
                             <div className="mb-8">
@@ -114,12 +114,12 @@ const Hero8 = () => {
             <div className="w-full relative lg:hidden h-full">
                 <img src={FooterBg} alt="Services" className="h-[200px] w-[390px]" />
 
-                <img
+                {/* <img
                     src={LeftFooterImg}
                     alt="Left Footer Background"
                     className="absolute left-[15px] top-[-10px] h-full object-contain"
                     data-aos="zoom-in"
-                />
+                /> */}
 
                 <img
                     src={RightFooterImg}

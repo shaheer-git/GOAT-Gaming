@@ -205,7 +205,6 @@ const Hero4 = () => {
                 src={FeedbackText}
                 alt="feedback"
                 className="mx-auto mb-8 overflow-hidden"
-                data-aos="zoom-in"
             />
             <ReviewCards />
         </div>

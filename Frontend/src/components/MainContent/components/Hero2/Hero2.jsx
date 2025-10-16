@@ -18,7 +18,7 @@ function Hero2() {
                 />
             </div>
 
-            <div className="hidden sm:flex items-center justify-center gap-4 md:gap-6 lg:gap-10 px-4 md:px-8">
+            <div className="hidden sm:flex items-center justify-center gap-4 md:gap-6 lg:gap-10 px-4 md:px-8" id='hero2'>
                 {/* Mission Card */}
                 <figure className="imghvr-reveal-up h-[280px] md:h-[330px] lg:h-[450px] w-[30%] md:w-[30%] lg:w-[320px] rounded-3xl overflow-hidden relative text-center group cursor-pointer">
                     <img
