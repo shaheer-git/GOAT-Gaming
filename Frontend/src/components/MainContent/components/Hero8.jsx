@@ -5,11 +5,26 @@ import LeftFooterImg from '../../../assets/leftFooterImg.png';
 import RightFooterImg from '../../../assets/RightFooterImg.png';
 import companyLog from '../../../assets/Logo.svg';
 
+const getURLs = (platform) => {
+    switch (platform) {
+        case 'Instagram':
+            return 'https://www.instagram.com/goatgamingcafe?igsh=MWVtOHIzODdpZ2c1Ng==';
+        case 'WhatsApp':
+            return 'https://wa.me/918884655514';
+        case 'Facebook':
+            return 'https://www.facebook.com/share/1Bm5tag1Yp/?mibextid=wwXIfr';
+        case 'YouTube':
+            return 'https://www.youtube.com/@TheGoatGamingCafe';
+        default:
+            return 'https://www.instagram.com/goatgamingcafe?igsh=MWVtOHIzODdpZ2c1Ng==';
+    }
+};
 const Hero8 = () => {
     const scrollToSection = (id) => {
         const section = document.getElementById(id);
         if (section) section.scrollIntoView({ behavior: 'smooth' });
     }
+
     return (
         <div className="p-5 text-start mt-6 mx-[-20px] h-full">
             {/* Title */}
@@ -65,8 +80,8 @@ const Hero8 = () => {
                                 <ul className="space-y-2">
                                     {[
                                         { label: 'Gallery', id: 'hero5' },
-                                        { label: 'Branches', id: 'hero6' },
-                                        { label: 'Franchise', id: 'hero6' },
+                                        { label: 'Branches', id: 'hero7' },
+                                        { label: 'Franchise', id: 'hero7' },
                                     ].map((item, i) => (
                                         <li key={i}>
                                             <button
@@ -88,8 +103,10 @@ const Hero8 = () => {
                                     {['Instagram', 'Facebook', 'YouTube', 'WhatsApp'].map((item, i) => (
                                         <li key={i}>
                                             <a
-                                                href="#"
+                                                href={getURLs(item)}
                                                 className="text-sm text-white hover:text-[var(--goat-red)] transition-colors"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                             >
                                                 {item}
                                             </a>
@@ -124,7 +141,7 @@ const Hero8 = () => {
                 <img
                     src={RightFooterImg}
                     alt="Right Footer Background"
-                    className="absolute right-0 bottom-[10px] h-[75%] object-contain z-20"
+                    className="absolute right-0 bottom-[10px] h-[75%] object-contain z-20 hidden md:inline"
                     data-aos="fade-up"
                     data-aos-anchor-placement="center-bottom"
                 />

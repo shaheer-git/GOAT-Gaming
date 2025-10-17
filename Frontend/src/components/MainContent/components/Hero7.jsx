@@ -9,7 +9,7 @@ function ContactForm() {
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    // subject: '',
     query: 'Franchise',
     message: '',
     // preferredTime: ''
@@ -28,8 +28,8 @@ function ContactForm() {
       case 'phone':
         const phoneRegex = /^[0-9]{10}$/;
         return !phoneRegex.test(value.replace(/\s/g, '')) ? 'Phone must be 10 digits' : '';
-      case 'subject':
-        return value.trim() === '' ? 'Subject is required' : '';
+      // case 'subject':
+      //   return value.trim() === '' ? 'Subject is required' : '';
       case 'message':
         return value.trim() === '' ? 'Message is required' : '';
       default:
@@ -68,26 +68,32 @@ function ContactForm() {
       name: true,
       email: true,
       phone: true,
-      subject: true,
+      // subject: true,
       message: true,
     });
 
     if (Object.keys(newErrors).length === 0) {
-      console.log('Form Data:', formData);
-
       // ✅ Prepare WhatsApp message
-      const textMessage = `📩 ${formData.query} — LevelUp Gaming Café
+      const textMessage = `
+Hi Goat Gaming Café,
+
+You have received a new query from your website:
 
 Name: ${formData.name}
-Phone/WhatsApp: ${formData.phone}
+Phone: ${formData.phone}
 Email: ${formData.email}
 Query Type: ${formData.query || 'Slot Booking'}
-Message: ${formData.message}`;
+Message: ${formData.message}
+
+Please get back to them at your earliest convenience.
+`;
+
       // ✅ Encode message for URL
       const encodedMessage = encodeURIComponent(textMessage);
 
       // ✅ Replace with your official WhatsApp number (with country code, no '+' or spaces)
-      const whatsappNumber = '919019095749'; // Example: +91 98765 43210 → '919876543210'
+      const whatsappNumber = '918884655514';
+      // const whatsappNumber = '919019095749';
 
       // ✅ Create WhatsApp URL
       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -100,7 +106,7 @@ Message: ${formData.message}`;
         name: '',
         email: '',
         phone: '',
-        subject: '',
+        // subject: '',
         query: 'Slot Booking',
         message: '',
         preferredTime: ''
@@ -111,7 +117,7 @@ Message: ${formData.message}`;
 
   return (
     <div className="flex justify-center items-center bg-[var(--goat-black)] w-full lg:w-6/7 h-full rounded-2xl">
-      <div className="bg-[var(--goat-black)] p-8 rounded-2xl w-full max-w-[500px]">
+      <div className="bg-[var(--goat-black)] p-8 rounded-2xl w-full max-w-[500px] border border-[var(--goat-red)]">
         <h2 className="text-white text-2xl font-semibold mb-10">Contact</h2>
 
         <div className="flex flex-col gap-6">
@@ -169,7 +175,7 @@ Message: ${formData.message}`;
                 <span className="text-red-500 text-xs mt-1">{errors.phone}</span>
               )}
             </div>
-            <div className="flex flex-col flex-1 md:w-1/2">
+            {/* <div className="flex flex-col flex-1 md:w-1/2">
               <label className="text-white text-sm mb-1">
                 Subject <span className="text-white">*</span>
               </label>
@@ -184,7 +190,7 @@ Message: ${formData.message}`;
               {touched.subject && errors.subject && (
                 <span className="text-red-500 text-xs mt-1">{errors.subject}</span>
               )}
-            </div>
+            </div> */}
           </div>
 
           {/* Dropdown */}
@@ -256,7 +262,7 @@ const Hero7 = () => {
       <img src={Text} alt="Services" className="mx-auto mb-8s pb-5" />
 
       <div className="w-full bg-white h-full hidden lg:flex items-center">
-        <img src={singleLine} alt="singleLine" className="h-full ml-15" />
+        <img src={singleLine} alt="singleLine" className="h-full ml-15 hidden md:block" />
         <div className="w-1/2 h-full border-r-0 flex items-start justify-center flex-col py-[35px]">
           <div className="w-full ml-10">
             <img src={GetInTouch} alt="GetInTouch" className="w-50 h-50" />
@@ -269,16 +275,16 @@ const Hero7 = () => {
             <div className="ml-10">
               <div className="mb-5">
                 <p className="font-semibold text-[#E91D27] text-lg text-start">Phone</p>
-                <p className="font-semibold text-[var(--goat-black)] text-lg text-start">+91 9751524186</p>
+                <p className="font-semibold text-[var(--goat-black)] text-lg text-start">+91 8884655514</p>
               </div>
-              <div className="mb-5">
+              {/* <div className="mb-5">
                 <p className="font-semibold text-[#E91D27] text-sm text-start">Email</p>
                 <p className="font-semibold text-[var(--goat-black)] text-sm text-start">hello@gmail.com</p>
-              </div>
+              </div> */}
               <div className="mb-5">
                 <p className="font-semibold text-[#E91D27] text-sm text-start">Location</p>
                 <p className="font-semibold text-[var(--goat-black)] text-sm text-start w-3/4">
-                  177A Bleecker Street, Greenwich Village, New York City
+                  94, Aikya Complex, 7th Cross, Ashoka Pillar Rd, above Dominos Pizza, 1st Block, Jayanagar, Bengaluru, Karnataka 560011
                 </p>
                 <a
                   target="_blank"
@@ -299,19 +305,19 @@ const Hero7 = () => {
             </div>
           </div>
         </div>
-        <img src={singleLine} alt="singleLine" className="h-full" />
+        <img src={singleLine} alt="singleLine" className="h-full hidden md:block" />
         <div className="w-1/2 h-full flex items-center justify-center py-[16px]">
           <ContactForm />
         </div>
-        <img src={singleLine} alt="singleLine" className="h-full mr-15" />
+        <img src={singleLine} alt="singleLine" className="h-full mr-15 hidden md:block" />
       </div>
 
       <div className="lg:hidden w-full flex justify-center items-center bg-[var(--goat-black)] min-h-screen">
-        <img src={singleLine} alt="singleLine" className="h-full" />
+        <img src={singleLine} alt="singleLine" className="h-full hidden md:block" />
         <div className="rounded-2xl w-[90%]">
           <ContactForm />
         </div>
-        <img src={singleLine} alt="singleLine" className="h-full mr-15" />
+        <img src={singleLine} alt="singleLine" className="h-full mr-15 hidden md:block" />
       </div>
 
     </div>

@@ -4,27 +4,38 @@ import FeedbackText from '../../../../assets/FeedbackText.svg'
 const reviews = [
     {
         rating: 5,
-        text: "Amazing cafe for PC gamers in Bangalore. Everything seems well thought; the silent rooms, latest peripherals and probably the cheapest 360hz setup for fps gamers (Costed me only 100rs per hour). Even if you spend only 1 hour here, it will be a quality gaming session. No hassle only fragging.",
-        name: "Mohammed Sameer",
-        userImg: null,
-        reviews: "8 reviews",
-        photos: "2 photos"
+        text: "Nice spot to hangout with friends and even the snacks are budget friendly. Maintained clean.",
+        name: "PRAVEEN PPB",
+        reviews: "3 reviews",
+        photos: "5 photos",
     },
     {
         rating: 5,
-        text: "Amazing cafe for PC gamers in Bangalore. Everything seems well thought; the silent rooms, latest peripherals and probably the cheapest 360hz setup for fps gamers (Costed me only 100rs per hour). Even if you spend only 1 hour here, it will be a quality gaming session. No hassle only fragging.",
-        name: "Mohammed Sameer",
-        userImg: null,
-        reviews: "8 reviews",
-        photos: "2 photos"
+        text: "The ambiance here is lively but not overwhelming, which is perfect for gaming. The PS5 setups are flawless, and the controllers are in excellent condition.",
+        name: "Harshith Hc",
+        reviews: "4 reviews",
+        photos: "1 photos",
     },
     {
         rating: 5,
-        text: "Amazing cafe for PC gamers in Bangalore. Everything seems well thought; the silent rooms, latest peripherals and probably the cheapest 360hz setup for fps gamers (Costed me only 100rs per hour). Even if you spend only 1 hour here, it will be a quality gaming session. No hassle only fragging.",
-        name: "Mohammed Sameer",
-        userImg: null,
-        reviews: "8 reviews",
-        photos: "2 photos"
+        text: "Best place for a good gaming sesh, very lively, especially a good place to hangout with friends.",
+        name: "Shresth Hirawat",
+        reviews: "3 reviews",
+        photos: "3 photos",
+    },
+    {
+        rating: 5,
+        text: "Best Spot if you want to experience latest games. They have all latest consoles with all the latest games. Perfect spot to pass time with friends.",
+        name: "Farhan Musthafa",
+        reviews: "3 reviews",
+        photos: "2 photos",
+    },
+    {
+        rating: 5,
+        text: "Awesome experience, excellent choice of games, best vibe and energy, mouthwatering snacks, very helpful and knowledgeable support staff. Rightfully called the GOAT",
+        name: "Vijay Bhartia",
+        reviews: "1 reviews",
+        photos: "8 photos",
     },
 ];
 
@@ -46,16 +57,18 @@ function ReviewCards() {
     const cardsToShow = isMobile ? 1 : 3;
     const shouldSlide = reviews.length > cardsToShow;
     const maxSlides = shouldSlide ? reviews.length - cardsToShow : 0;
+    const allReviews = [...reviews, ...reviews];
 
     useEffect(() => {
-        if (!shouldSlide || isHovered) return;
+        if (!shouldSlide) return;
 
         const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % reviews.length);
+            setCurrentSlide(prev => (prev + 1) % allReviews.length);
         }, 4000);
 
         return () => clearInterval(interval);
-    }, [shouldSlide, isHovered, reviews.length]);
+    }, [shouldSlide]);
+
 
 
     return (
@@ -65,14 +78,12 @@ function ReviewCards() {
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Desktop View - 3 cards */}
-            <div className="hidden lg:block px-8">
+            <div className="reviews-wrapper overflow-hidden lg:block hidden">
                 <div
-                    className="flex transition-transform duration-500 ease-in-out items-center gap-8"
-                    style={{
-                        transform: `translateX(-${(currentSlide * 100) / cardsToShow}%)`,
-                    }}
+                    className={`reviews-track flex transition-transform duration-500 ${isMobile ? 'gap-4' : 'gap-15'}`}
+                    style={{ transform: `translateX(-${currentSlide * 300}px)` }} // 300 = card width
                 >
-                    {reviews.map((review, index) => (
+                    {allReviews.map((review, index) => (
                         <ReviewCard key={index} review={review} isMobile={false} />
                     ))}
                 </div>
@@ -80,14 +91,14 @@ function ReviewCards() {
 
             <div className="block lg:hidden px-4">
                 <div className="flex flex-col items-center gap-4">
-                    <ReviewCard review={reviews[currentSlide]} isMobile={true} />
+                    <ReviewCard review={allReviews[currentSlide]} isMobile={true} />
                 </div>
             </div>
 
             {/* Slide indicators */}
             {shouldSlide && (
                 <div className="flex justify-center mt-6 gap-2">
-                    {Array(isMobile ? reviews.length : maxSlides + 1).fill().map((_, index) => (
+                    {Array(isMobile ? allReviews.length : maxSlides + 1).fill().map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setCurrentSlide(index)}
@@ -109,9 +120,9 @@ function ReviewCard({ review, isMobile }) {
     return (
         <div
             className={`relative rounded-2xl p-5 cursor-pointer overflow-hidden
-                     transform transition-all duration-500 hover:-translate-y-3 flex-shrink-0
+                     transform transition-all duration-500 flex-shrink-0
                      shadow-lg shadow-[var(--goat-black)]/50 ${isMobile
-                    ? 'w-full max-w-md h-auto min-h-[350px]'
+                    ? 'w-full max-w-xs h-auto min-h-[350px]'
                     : 'w-[450px] h-[400px]'
                 }`}
             onMouseEnter={() => setIsHovered(true)}
@@ -131,7 +142,7 @@ function ReviewCard({ review, isMobile }) {
                     top: isHovered ? '-40%' : '40%',
                     background: 'var(--goat-red)',
                     borderRadius: '50%',
-                    transform: `translateY(${isHovered ? '-20px' : '0px'})`,
+                    transform: `translateY(${isHovered ? '-10px' : '0px'})`,
                     opacity: 0.3,
                     boxShadow: `
                         0 ${isHovered ? '10px' : '5px'} ${isHovered ? '30px' : '15px'} rgba(233, 29, 39, ${isHovered ? '0.4' : '0.2'}),

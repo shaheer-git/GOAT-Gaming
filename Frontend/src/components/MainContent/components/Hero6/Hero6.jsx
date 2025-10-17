@@ -16,19 +16,24 @@ const Hero6 = () => {
                 <figure className="imghvr-reveal-up w-[45%] sm:w-[40%] md:w-[379px] h-[200px] sm:h-[250px] md:h-[361px] rounded-3xl overflow-hidden relative text-center flex-shrink-0 hover:cursor-pointer group" data-aos="fade-right">
                     <img src={LocationImg1} alt="Jayanagar" className="h-full w-full object-cover rounded-3xl" />
                     <p className="text-xl sm:text-2xl md:text-2xl font-bold text-black mb-2 absolute z-50 bottom-2 w-full text-start ml-3 sm:ml-4">Jayanagar</p>
-                    <figcaption className="p-3 sm:p-6 rounded-3xl text-center flex justify-center items-center backdrop-blur-xs">
-                        <div className="flex items-center justify-center gap-2 sm:gap-3 h-[70px] sm:h-[100px] group">
-                            <p className="text-sm sm:text-lg font-bold text-black text-start group-hover:underline">
+                    <figcaption className="p-3 sm:p-6 rounded-3xl text-center flex justify-center items-center backdrop-blur-xs w-full h-full">
+                        <div className="flex items-center justify-center h-full w-full">
+                            <a
+                                href="https://maps.app.goo.gl/hB63RThDwrSafxyt7"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-sm sm:text-lg font-bold text-black hover:underline transition-all duration-300"
+                            >
                                 Direct me there
-                            </p>
-                            <img
-                                src={RightArrowIcon}
-                                alt=""
-                                className="w-4 h-4 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:-rotate-50"
-                            />
+                                <img
+                                    src={RightArrowIcon}
+                                    alt="arrow"
+                                    className="w-4 h-4 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:-rotate-45 group-hover:translate-x-1"
+                                />
+                            </a>
                         </div>
                     </figcaption>
-                    <div className="absolute bottom-0 left-0 right-0 h-2/6 backdrop-blur-xs bg-gradient-to-t from-white/100 via-white/25 to-white/0"/>
+                    <div className="absolute bottom-0 left-0 right-0 h-2/6 backdrop-blur-xs bg-gradient-to-t from-white/100 via-white/25 to-white/0" />
                 </figure>
 
                 <figure className="imghvr-reveal-up w-[45%] sm:w-[40%] md:w-[379px] h-[200px] sm:h-[250px] md:h-[361px] rounded-3xl overflow-hidden relative text-center flex-shrink-0 hover:cursor-pointer group" data-aos="fade-left">

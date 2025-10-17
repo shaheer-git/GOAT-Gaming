@@ -1,21 +1,42 @@
 @keyframes slide {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
+  }
 
-    100% {
-        transform: translateX(-50%);
-        /* Move half since we duplicated reviews */
-    }
+  100% {
+    transform: translateX(-50%);
+    /* Move half since we duplicated reviews */
+  }
 }
 
 .animate-slide {
-    animation: slide 20s linear infinite;
+  animation: slide 20s linear infinite;
 }
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+  /* assuming content is duplicated */
+}
+
+.reviews-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
 }
