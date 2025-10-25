@@ -22,7 +22,7 @@ const Hero6 = () => {
                                 href="https://maps.app.goo.gl/hB63RThDwrSafxyt7"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm sm:text-lg font-bold text-black hover:underline transition-all duration-300"
+                                className="contents items-center gap-2 text-sm sm:text-lg font-bold text-black hover:underline transition-all duration-300"
                             >
                                 <span>Direct me there</span>
                                 <img
