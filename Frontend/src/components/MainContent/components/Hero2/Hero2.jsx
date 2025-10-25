@@ -4,7 +4,7 @@ import MissionImg from '../../../../assets/GOAT-MIssion.png'
 import AboutUsImg from '../../../../assets/GOAT-About-us.png'
 import VisionImg from '../../../../assets/GOAT-Vision.png'
 import 'imagehover.css/css/imagehover.min.css';
-import './hero2.css'
+import './Hero2.css'
 
 
 function Hero2() {

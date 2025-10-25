@@ -1,7 +1,6 @@
 import React from 'react';
 import Text from '../../../assets/LetsPlayTogether.svg';
 import FooterBg from '../../../assets/FooterBg.svg';
-import LeftFooterImg from '../../../assets/leftFooterImg.png';
 import RightFooterImg from '../../../assets/RightFooterImg.png';
 import companyLog from '../../../assets/Logo.svg';
 
