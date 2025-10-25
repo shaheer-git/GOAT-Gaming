@@ -167,7 +167,7 @@ const Hero8 = () => {
                             </h3>
 
                             <div className="flex justify-center gap-3 sm:gap-4 md:gap-5">
-                                <a href="#" className="hover:opacity-80 transition-opacity">
+                                <a href="https://www.instagram.com/goatgamingcafe?igsh=MWVtOHIzODdpZ2c1Ng==" target='_blank' className="hover:opacity-80 transition-opacity">
                                     <svg
                                         className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9"
                                         viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ const Hero8 = () => {
                                     </svg>
                                 </a>
 
-                                <a href="#" className="hover:opacity-80 transition-opacity">
+                                <a href="https://www.youtube.com/@TheGoatGamingCafe" target='_blank' className="hover:opacity-80 transition-opacity">
                                     <svg
                                         className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9"
                                         viewBox="0 0 24 24"
