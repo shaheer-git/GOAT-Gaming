@@ -23,7 +23,7 @@ const Navbar = () => {
                     className="h-10 object-contain"
                 />
 
-                <button className="text-white p-2" onClick={() => window.open("tel:+91 8884655514")} >
+                <button className="text-white p-2" onClick={() => window.open("tel:+91 9019095749")} >
                     <img src={CallIcon} alt="call Now" srcset="" className="h-8" />
                 </button>
             </div>
