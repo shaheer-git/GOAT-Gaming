@@ -275,32 +275,48 @@ const Hero7 = () => {
             <div className="ml-10">
               <div className="mb-5">
                 <p className="font-semibold text-[#E91D27] text-lg text-start">Phone</p>
-                <p className="font-semibold text-[var(--goat-black)] text-lg text-start">+91 8884655514</p>
+                <p className="font-semibold text-[var(--goat-black)] text-md text-start">+91 8884655514</p>
               </div>
               {/* <div className="mb-5">
                 <p className="font-semibold text-[#E91D27] text-sm text-start">Email</p>
                 <p className="font-semibold text-[var(--goat-black)] text-sm text-start">hello@gmail.com</p>
               </div> */}
               <div className="mb-5">
-                <p className="font-semibold text-[#E91D27] text-sm text-start">Location</p>
-                <p className="font-semibold text-[var(--goat-black)] text-sm text-start w-3/4">
-                  94, Aikya Complex, 7th Cross, Ashoka Pillar Rd, above Dominos Pizza, 1st Block, Jayanagar, Bengaluru, Karnataka 560011
-                </p>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 mt-2 group"
-                  href="https://maps.app.goo.gl/hB63RThDwrSafxyt7"
-                >
-                  <p className="font-semibold text-[var(--goat-black)] text-sm text-start underline">
-                    See on Google Map
-                  </p>
-                  <img
-                    src={SeeUsOnGMaps}
-                    alt=""
-                    className="w-3 h-3 group-hover:-translate-y-1 transform transition-all duration-300"
-                  />
-                </a>
+                <p className="font-semibold text-[#E91D27] text-lg text-start">Location</p>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 mt-2 group"
+                    href="https://maps.app.goo.gl/hB63RThDwrSafxyt7"
+                  >
+                    <p className="font-semibold text-[var(--goat-black)] text-md text-start underline">
+                      Jayanagar
+                    </p>
+                    <img
+                      src={SeeUsOnGMaps}
+                      alt=""
+                      className="w-3 h-3 group-hover:-translate-y-1 transform transition-all duration-300"
+                    />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 mt-2 group"
+                    href="https://maps.app.goo.gl/f2Uq2uDe5hYCkZPx6"
+                  >
+                    <p className="font-semibold text-[var(--goat-black)] text-md text-start underline">
+                      New BEL Rd
+                    </p>
+                    <img
+                      src={SeeUsOnGMaps}
+                      alt=""
+                      className="w-3 h-3 group-hover:-translate-y-1 transform transition-all duration-300"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import GoatWallText from '../../../assets/GoatWallText.svg'
-import WallPortrait1 from '../../../assets/WallPortrait-1.png'
-import WallPortrait2 from '../../../assets/WallPortrait-2.png'
-import WallPortrait3 from '../../../assets/WallPortrait-3.png'
-import WallPortrait4 from '../../../assets/WallPortrait-4.jpg'
-import WallPortrait5 from '../../../assets/WallPortrait-5.jpg'
-import WallPortrait6 from '../../../assets/WallPortrait-6.jpg'
-import WallPortrait7 from '../../../assets/WallPortrait-7.jpg'
+import WallPortrait1 from '../../../assets/WallPortrait-1.webp'
+import WallPortrait2 from '../../../assets/WallPortrait-2.webp'
+import WallPortrait3 from '../../../assets/WallPortrait-3.webp'
+import WallPortrait4 from '../../../assets/WallPortrait-4.webp'
+import WallPortrait5 from '../../../assets/WallPortrait-5.webp'
+import WallPortrait6 from '../../../assets/WallPortrait-6.webp'
+import WallPortrait7 from '../../../assets/WallPortrait-7.webp'
+import WallPortrait8 from '../../../assets/WallPortrait-8.webp'
+import WallPortrait9 from '../../../assets/WallPortrait-9.webp'
 import WallLandscape1 from '../../../assets/WallLandscape-1.webp'
 import WallLandscape2 from '../../../assets/WallLandscape-2.webp'
 import WallLandscape3 from '../../../assets/WallLandscape-3.webp'
@@ -31,7 +33,8 @@ import WallLandscape18 from '../../../assets/WallLandscape-18.webp'
 const Hero5 = () => {
     const portraitImages = [
         WallPortrait1, WallPortrait2, WallPortrait3, WallPortrait4,
-        WallPortrait5, WallPortrait6, WallPortrait7,
+        WallPortrait5, WallPortrait6, WallPortrait7, WallPortrait8,
+        WallPortrait9
     ];
 
     const landscapeImages = [

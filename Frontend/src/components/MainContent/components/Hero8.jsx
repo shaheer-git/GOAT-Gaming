@@ -116,7 +116,7 @@ const Hero8 = () => {
                         </div>
                     </div>
                     <div className="text-[10px] text-white leading-relaxed w-auto mt-6">
-                        © 2025 G.O.A.T Gaming Cafe. All rights reserved.<br />
+                        © 2026 G.O.A.T Gaming Cafe. All rights reserved.<br />
                         Power up responsibly. Stay hydrated. GGiz
                     </div>
                 </div>
