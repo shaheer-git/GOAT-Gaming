@@ -7,8 +7,8 @@ import singleLine from '../../../assets/singleLine.svg';
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    phone: '',
+    // email: '',
+    // phone: '',
     // subject: '',
     query: 'Franchise',
     message: '',
@@ -22,12 +22,12 @@ function ContactForm() {
     switch (name) {
       case 'name':
         return value.trim() === '' ? 'Name is required' : '';
-      case 'email':
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return !emailRegex.test(value) ? 'Invalid email address' : '';
-      case 'phone':
-        const phoneRegex = /^[0-9]{10}$/;
-        return !phoneRegex.test(value.replace(/\s/g, '')) ? 'Phone must be 10 digits' : '';
+      // case 'email':
+      //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      //   return !emailRegex.test(value) ? 'Invalid email address' : '';
+      // case 'phone':
+      //   const phoneRegex = /^[0-9]{10}$/;
+      //   return !phoneRegex.test(value.replace(/\s/g, '')) ? 'Phone must be 10 digits' : '';
       // case 'subject':
       //   return value.trim() === '' ? 'Subject is required' : '';
       case 'message':
@@ -66,27 +66,22 @@ function ContactForm() {
     setErrors(newErrors);
     setTouched({
       name: true,
-      email: true,
+      // email: true,
       phone: true,
       // subject: true,
       message: true,
     });
 
     if (Object.keys(newErrors).length === 0) {
-      // ✅ Prepare WhatsApp message
-      const textMessage = `
-Hi Goat Gaming Café,
+      const queryMessages = {
+        'Franchise': 'I am interested in a franchise opportunity.',
+        'Slot Booking': 'I would like to book a gaming slot.',
+        'General Query': 'I have a general query.',
+        'Support': 'I need support regarding your services.'
+      };
 
-You have received a new query from your website:
-
-Name: ${formData.name}
-Phone: ${formData.phone}
-Email: ${formData.email}
-Query Type: ${formData.query || 'Slot Booking'}
-Message: ${formData.message}
-
-Please get back to them at your earliest convenience.
-`;
+      const textMessage = `Hi, my name is ${formData.name}.
+${queryMessages[formData.query] || 'I would like to get in touch.'}`;
 
       // ✅ Encode message for URL
       const encodedMessage = encodeURIComponent(textMessage);
@@ -104,8 +99,8 @@ Please get back to them at your earliest convenience.
       // ✅ Reset form
       setFormData({
         name: '',
-        email: '',
-        phone: '',
+        // email: '',
+        // phone: '',
         // subject: '',
         query: 'Slot Booking',
         message: '',
@@ -139,9 +134,9 @@ Please get back to them at your earliest convenience.
                 <span className="text-red-500 text-xs mt-1">{errors.name}</span>
               )}
             </div>
-            <div className="flex flex-col flex-1 md:w-1/2">
-              <label className="text-white text-sm mb-1">
-                Email <span className="text-white">*</span>
+            {/* <div className="flex flex-col flex-1 md:w-1/2"> */}
+              {/* <label className="text-white text-sm mb-1">
+                Email
               </label>
               <input
                 type="email"
@@ -150,16 +145,16 @@ Please get back to them at your earliest convenience.
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className="bg-transparent border-b border-[var(--goat-red)] focus:outline-none text-white py-1"
-              />
-              {touched.email && errors.email && (
+              /> */}
+              {/* {touched.email && errors.email && (
                 <span className="text-red-500 text-xs mt-1">{errors.email}</span>
-              )}
-            </div>
+              )} */}
+            {/* </div> */}
           </div>
 
           {/* Row 2 */}
-          <div className="flex flex-col md:flex-row gap-4 w-full">
-            <div className="flex flex-col flex-1 md:w-1/2">
+          {/* <div className="flex flex-col md:flex-row gap-4 w-full"> */}
+            {/* <div className="flex flex-col flex-1 md:w-1/2">
               <label className="text-white text-sm mb-1">
                 Phone <span className="text-white">*</span>
               </label>
@@ -174,7 +169,7 @@ Please get back to them at your earliest convenience.
               {touched.phone && errors.phone && (
                 <span className="text-red-500 text-xs mt-1">{errors.phone}</span>
               )}
-            </div>
+            </div> */}
             {/* <div className="flex flex-col flex-1 md:w-1/2">
               <label className="text-white text-sm mb-1">
                 Subject <span className="text-white">*</span>
@@ -191,7 +186,7 @@ Please get back to them at your earliest convenience.
                 <span className="text-red-500 text-xs mt-1">{errors.subject}</span>
               )}
             </div> */}
-          </div>
+          {/* </div> */}
 
           {/* Dropdown */}
           <div className="flex flex-col w-full">
@@ -200,7 +195,7 @@ Please get back to them at your earliest convenience.
               name="query"
               value={formData.query}
               onChange={handleChange}
-              className="bg-transparent w-1/2 text-[var(--goat-red)] focus:outline-none text-md"
+              className="bg-transparent w-full  text-[var(--goat-red)] focus:outline-none text-md"
             >
               <option className="bg-[var(--goat-black)] text-white">Franchise</option>
               <option className="bg-[var(--goat-black)] text-white">Slot Booking</option>
@@ -259,13 +254,13 @@ Please get back to them at your earliest convenience.
 const Hero7 = () => {
   return (
     <div className="p-5 text-start mt-6" id="hero7">
-      <img src={Text} alt="Services" className="mx-auto mb-8s pb-5" />
+      <img src={Text} alt="Services" loading="lazy" className="mx-auto mb-8s pb-5" />
 
       <div className="w-full bg-white h-full hidden lg:flex items-center">
-        <img src={singleLine} alt="singleLine" className="h-full ml-15 hidden md:block" />
+        <img src={singleLine} alt="singleLine" loading="lazy" className="h-full ml-15 hidden md:block" />
         <div className="w-1/2 h-full border-r-0 flex items-start justify-center flex-col py-[35px]">
           <div className="w-full ml-10">
-            <img src={GetInTouch} alt="GetInTouch" className="w-50 h-50" />
+            <img src={GetInTouch} alt="GetInTouch" loading="lazy" className="w-50 h-50" />
           </div>
           <div className="flex flex-col gap-5">
             <div className="ml-10">
@@ -296,6 +291,7 @@ const Hero7 = () => {
                     <img
                       src={SeeUsOnGMaps}
                       alt=""
+                      loading="lazy"
                       className="w-3 h-3 group-hover:-translate-y-1 transform transition-all duration-300"
                     />
                   </a>
@@ -313,6 +309,7 @@ const Hero7 = () => {
                     <img
                       src={SeeUsOnGMaps}
                       alt=""
+                      loading="lazy"
                       className="w-3 h-3 group-hover:-translate-y-1 transform transition-all duration-300"
                     />
                   </a>
@@ -321,7 +318,7 @@ const Hero7 = () => {
             </div>
           </div>
         </div>
-        <img src={singleLine} alt="singleLine" className="h-full hidden md:block" />
+        <img src={singleLine} alt="singleLine" loading="lazy" className="h-full hidden md:block" />
         <div className="w-1/2 h-full flex items-center justify-center py-[16px]">
           <ContactForm />
         </div>
@@ -329,7 +326,7 @@ const Hero7 = () => {
       </div>
 
       <div className="lg:hidden w-full flex justify-center items-center bg-[var(--goat-black)] min-h-screen">
-        <img src={singleLine} alt="singleLine" className="h-full hidden md:block" />
+        <img src={singleLine} alt="singleLine" loading="lazy" className="h-full hidden md:block" />
         <div className="rounded-2xl w-[90%]">
           <ContactForm />
         </div>

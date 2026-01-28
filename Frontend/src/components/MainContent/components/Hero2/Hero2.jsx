@@ -13,6 +13,7 @@ function Hero2() {
                 <img
                     src={WhyText}
                     alt="why text"
+                    loading="lazy"
                     className="h-[120px] sm:h-[160px] md:h-[200px]"
                 />
             </div>
@@ -23,6 +24,7 @@ function Hero2() {
                     <img
                         src={MissionImg}
                         alt="Mission"
+                        loading="lazy"
                         className="h-full w-full object-cover rounded-3xl"
                     />
                     <p className="text-xl md:text-2xl lg:text-6xl font-extrabold text-white mb-4 absolute z-50 bottom-2 w-full group-hover:hidden">
@@ -45,6 +47,7 @@ function Hero2() {
                     <img
                         src={AboutUsImg}
                         alt="About Us"
+                        loading="lazy"
                         className="h-full w-full object-cover rounded-3xl"
                     />
                     <p className="text-xl md:text-2xl lg:text-6xl font-extrabold text-white mb-4 absolute z-50 bottom-2 w-full group-hover:hidden">
@@ -67,6 +70,7 @@ function Hero2() {
                     <img
                         src={VisionImg}
                         alt="Vision"
+                        loading="lazy"
                         className="h-full w-full object-cover rounded-3xl"
                     />
                     <p className="text-xl md:text-2xl lg:text-6xl font-extrabold text-white mb-4 absolute z-50 bottom-2 w-full group-hover:hidden">

@@ -215,6 +215,7 @@ const Hero4 = () => {
             <img
                 src={FeedbackText}
                 alt="feedback"
+                loading="lazy"
                 className="mx-auto mb-8 overflow-hidden"
             />
             <ReviewCards />

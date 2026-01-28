@@ -6,9 +6,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import './App.css';
+import { initNotific } from './utils/notificLoader';
 
 export default function App() {
   useEffect(() => {
+    // Initialize Notific loader
+    initNotific();
+    
+    // Initialize AOS
     AOS.init({
       duration: 2000,
     });

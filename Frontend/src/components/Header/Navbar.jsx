@@ -20,17 +20,18 @@ const Navbar = () => {
                 <img
                     src={companyLog}
                     alt="G.O.A.T"
+                    loading="eager"
                     className="h-10 object-contain"
                 />
 
                 <button className="text-white p-2" onClick={() => window.open("tel:+91 8884655514")} >
-                    <img src={CallIcon} alt="call Now" srcset="" className="h-8" />
+                    <img src={CallIcon} alt="call Now" loading="eager" className="h-8" />
                 </button>
             </div>
 
             <div className="hidden md:flex h-[12vh] w-full text-[var(--goat-red)] text-center text-2xl items-center gap-4 lg:gap-6 mb-4">
                 <div className="w-1/6 h-full flex items-center">
-                    <img src={companyLog} alt="" className="max-h-10 md:max-h-12 lg:max-h-14" />
+                    <img src={companyLog} alt="" loading="eager" className="max-h-10 md:max-h-12 lg:max-h-14" />
                 </div>
                 <div className='w-full h-[50px] md:h-[55px] lg:h-[60px] rounded-full flex items-center justify-around px-2'>
                     <div className="group py-3 px-6 rounded-full hover:bg-[var(--goat-red)] cursor-pointer transition-colors duration-300"
@@ -93,6 +94,7 @@ const Navbar = () => {
                     <img
                         src={ContactUsArrow}
                         alt="contact us"
+                        loading="lazy"
                         className="transition-transform duration-300 group-hover:translate-x-2 w-4 md:w-5"
                     />
                 </div>

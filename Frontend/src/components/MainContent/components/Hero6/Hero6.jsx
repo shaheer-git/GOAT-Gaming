@@ -10,12 +10,12 @@ const Hero6 = () => {
     return (
         <div className="p-5 text-center mt-6">
             {/* Title */}
-            <img src={Text} alt="Services" className="mx-auto mb-10" />
+            <img src={Text} alt="Services" loading="lazy" className="mx-auto mb-10" />
 
             <div className='flex justify-center items-center gap-3 sm:gap-4 md:justify-between md:px-10 w-full'>
 
                 <figure className="imghvr-reveal-up w-[45%] sm:w-[40%] md:w-[379px] h-[200px] sm:h-[250px] md:h-[361px] rounded-3xl overflow-hidden relative text-center flex-shrink-0 hover:cursor-pointer group" data-aos="fade-right">
-                    <img src={LocationImg1} alt="Jayanagar" className="h-full w-full object-cover rounded-3xl" />
+                    <img src={LocationImg1} alt="Jayanagar" loading="lazy" className="h-full w-full object-cover rounded-3xl" />
                     <p className="text-xl sm:text-2xl md:text-2xl font-bold text-black mb-2 absolute z-50 bottom-2 w-full text-start ml-3 sm:ml-4">Jayanagar</p>
                     <figcaption className="p-3 sm:p-6 rounded-3xl text-center flex justify-center items-center backdrop-blur-xs w-full h-full">
                         <div className="flex items-center justify-center h-full w-full">
@@ -29,6 +29,7 @@ const Hero6 = () => {
                                 <img
                                     src={RightArrowIcon}
                                     alt="arrow"
+                                    loading="lazy"
                                     className="w-4 h-4 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:-rotate-45 group-hover:translate-x-1"
                                 />
                             </a>
@@ -38,7 +39,7 @@ const Hero6 = () => {
                 </figure>
 
                 <figure className="imghvr-reveal-up w-[45%] sm:w-[40%] md:w-[379px] h-[200px] sm:h-[250px] md:h-[361px] rounded-3xl overflow-hidden relative text-center flex-shrink-0 hover:cursor-pointer group" data-aos="fade-left">
-                    <img src={LocationImg2} alt="Bellandur" className="h-full w-full object-cover rounded-3xl" />
+                    <img src={LocationImg2} alt="Bellandur" loading="lazy" className="h-full w-full object-cover rounded-3xl" />
                     <p className="text-xl sm:text-2xl md:text-2xl font-bold text-black mb-2 absolute z-50 bottom-2 w-full text-start ml-3 sm:ml-4">New BEL Rd</p>
                     <figcaption className="p-3 sm:p-6 rounded-3xl text-center flex justify-center items-center">
                         <div className="flex items-center justify-center gap-2 sm:gap-3 h-[70px] sm:h-[100px] group">
@@ -52,6 +53,7 @@ const Hero6 = () => {
                                 <img
                                     src={RightArrowIcon}
                                     alt="arrow"
+                                    loading="lazy"
                                     className="w-4 h-4 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:-rotate-45 group-hover:translate-x-1"
                                 />
                             </a>

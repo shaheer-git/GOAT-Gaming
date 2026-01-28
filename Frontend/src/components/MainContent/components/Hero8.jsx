@@ -27,10 +27,10 @@ const Hero8 = () => {
     return (
         <div className="p-5 text-start mt-6 mx-[-20px] h-full">
             {/* Title */}
-            <img src={Text} alt="Services" className="mx-auto mb-10" />
+            <img src={Text} alt="Services" loading="lazy" className="mx-auto mb-10" />
 
             <div className="w-full h-full relative hidden lg:block">
-                <img src={FooterBg} alt="Footer Background" className="w-full" />
+                <img src={FooterBg} alt="Footer Background" loading="lazy" className="w-full" />
                 {/* <img
                     src={LeftFooterImg}
                     alt="Left Footer Background"
@@ -43,6 +43,7 @@ const Hero8 = () => {
                                 <img
                                     src={companyLog}
                                     alt="G.O.A.T Gaming Cafe Logo"
+                                    loading="lazy"
                                     className="h-20 w-auto"
                                 />
                             </div>
@@ -123,12 +124,13 @@ const Hero8 = () => {
                 <img
                     src={RightFooterImg}
                     alt="Right Footer Background"
+                    loading="lazy"
                     className="absolute right-0 bottom-0 h-[85%] object-cover z-10"
                 />
             </div>
 
             <div className="w-full relative lg:hidden h-full">
-                <img src={FooterBg} alt="Services" className="h-[200px] w-[390px]" />
+                <img src={FooterBg} alt="Services" loading="lazy" className="h-[200px] w-[390px]" />
 
                 {/* <img
                     src={LeftFooterImg}
@@ -140,6 +142,7 @@ const Hero8 = () => {
                 <img
                     src={RightFooterImg}
                     alt="Right Footer Background"
+                    loading="lazy"
                     className="absolute right-0 bottom-[10px] h-[75%] object-contain z-20 hidden md:inline"
                     data-aos="fade-up"
                     data-aos-anchor-placement="center-bottom"

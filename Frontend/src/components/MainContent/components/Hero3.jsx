@@ -22,7 +22,7 @@ const Hero3 = () => {
     return (
         <div className="p-5 text-center mt-6" id="hero3">
             {/* Title */}
-            <img src={ServicesText} alt="Services" className="mx-auto mb-8" />
+            <img src={ServicesText} alt="Services" loading="lazy" className="mx-auto mb-8" />
 
             <div className="flex flex-col items-center gap-2 sm:gap-4">
                 {desktopRows.map((row, rowIndex) => (
